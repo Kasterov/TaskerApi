@@ -1,8 +1,11 @@
+using TaskerApi.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContextCustom(builder);
 
 var app = builder.Build();
 

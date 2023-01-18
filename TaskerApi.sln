@@ -4,10 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskerApi", "TaskerApi\TaskerApi.csproj", "{4E951B18-ED2E-45F2-A0E9-DEE5A90791C0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1E8CD8F2-F0E5-4A50-B0A3-F257AD7D0428} = {1E8CD8F2-F0E5-4A50-B0A3-F257AD7D0428}
+		{A8165F1B-DC2F-4243-9A17-9DB394AE3394} = {A8165F1B-DC2F-4243-9A17-9DB394AE3394}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DLL\DAL.csproj", "{A8165F1B-DC2F-4243-9A17-9DB394AE3394}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{1E8CD8F2-F0E5-4A50-B0A3-F257AD7D0428}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A8165F1B-DC2F-4243-9A17-9DB394AE3394} = {A8165F1B-DC2F-4243-9A17-9DB394AE3394}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
