@@ -23,6 +23,13 @@ public class AssignmentRepository : IAssignmentRepository
         await _DbContext.SaveChangesAsync();
     }
 
+    public async Task<IEnumerable<Assignment>> GetAllAssignments()
+    {
+        var assignments = await _DbContext.Assignments.ToListAsync();
+
+        return assignments;
+    }
+
     public async Task<Assignment?> GetAssignmentById(int id)
     {
         var assignment = await _DbContext.Assignments
@@ -31,7 +38,7 @@ public class AssignmentRepository : IAssignmentRepository
         return assignment is not null ? assignment : null; 
     }
 
-    public async Task<IEnumerable<Assignment>> GetAssignmentsByStatus(EnumStatus status)
+    public async Task<IEnumerable<Assignment>> GetAssignmentsByStatus(AssignmentStatus status)
     {
         var assignments = await _DbContext.Assignments
             .Where(x => x.Status == status)
@@ -45,6 +52,15 @@ public class AssignmentRepository : IAssignmentRepository
             .ToListAsync();
 
         return assignments;
+    }
+
+    public async Task PatchAssignmentStatusById(int id, AssignmentStatus status)
+    {
+        var assignment = await GetAssignmentById(id);
+
+        assignment.Status = status;
+
+        await _DbContext.SaveChangesAsync();
     }
 
     public async Task PutAssignment(Assignment assignment)
