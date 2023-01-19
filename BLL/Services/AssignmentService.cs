@@ -22,6 +22,8 @@ public class AssignmentService : IAssignmentService
     {
         var assignmentModel = _mapper.Map<Assignment>(assignemnt);
 
+        assignmentModel.Status = AssignmentStatus.Todo;
+
         await _assignmentRepository.PutAssignment(assignmentModel);
     }
 
@@ -60,6 +62,9 @@ public class AssignmentService : IAssignmentService
     public async Task UpdateAssignment(int id, UpdateAssignmentDTO assignemnt)
     {
         var assignmentMaped = _mapper.Map<Assignment>(assignemnt);
+
+        assignmentMaped.Id = id;
+
         await _assignmentRepository.UpdateAssignmentById(assignmentMaped);
     }
 }

@@ -7,11 +7,11 @@ namespace TaskerApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class AssignmentController : ControllerBase
+public class TaskerController : ControllerBase
 {
     private readonly IAssignmentService _assignmentService;
 
-    public AssignmentController(IAssignmentService assignmentService)
+    public TaskerController(IAssignmentService assignmentService)
     {
         _assignmentService = assignmentService;
     }
